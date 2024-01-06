@@ -4,7 +4,7 @@ download video from a spotify playlist
 from track_links import get_track_links
 from track_names import get_names_from_track
 from youtube_links import get_yt_links_from_track_names
-from YTdownloader import download_video
+from yt_downloader import download_video
 
 if __name__ == '__main__':
     playListLink = input("paste sportify playlist link: ")
