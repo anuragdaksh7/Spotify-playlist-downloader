@@ -6,8 +6,10 @@ def getYTlinksFromTrackNames(TrackNames: list[str])->list[str]:
         RAW_PAGE_DATA = requests.get(BASE_URL+"%20".join(trackName.split(" ")))
         RAW_HTML = RAW_PAGE_DATA.text
         flag = len('videoId": ')
-        linkLoc = RAW_HTML.find(flag)
+        flag_text = 'videoId'
+        linkLoc = RAW_HTML.find(flag_text)
         approxLinkLength = 20
         print(trackName+" youtu.be/"+RAW_HTML[linkLoc+flag:linkLoc+flag+approxLinkLength].split('"')[0])
         YTlinks.append("youtu.be/"+RAW_HTML[linkLoc+flag:linkLoc+flag+approxLinkLength].split('"')[0])
-        
+    return YTlinks
+
