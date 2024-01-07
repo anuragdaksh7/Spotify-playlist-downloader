@@ -1,5 +1,9 @@
 # Spotify-playlist-downloader
 
+# Tech Stack
+- Python
+- Web Scraping
+
 ## Installation
 ```
 git clone https://github.com/anuragdaksh7/Spotify-playlist-downloader.git
