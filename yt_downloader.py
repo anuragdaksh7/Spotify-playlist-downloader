@@ -1,7 +1,8 @@
 """
 download videos from yt url
 """
-from pytube import YouTube
+from pytubefix import YouTube
+from pytubefix.cli import on_progress
 
 
 def download_video(url: str, output_path="."):
@@ -25,10 +26,15 @@ def download_video(url: str, output_path="."):
         Download completed.
     """
     try:
-        yt = YouTube(url)
-        video_stream = yt.streams.get_highest_resolution()
-
-        video_stream.download(output_path)
+        yt = YouTube(url, on_progress_callback = on_progress)
+        print(yt.title)
+        
+        ys = yt.streams.get_highest_resolution()
+        ys.download(output_path)
         print("Download completed.")
     except Exception as e:
         print(f"Error: {e}")
+
+if __name__ == "__main__":
+    url = input("Paste the YouTube video URL: ")
+    download_video(url)
